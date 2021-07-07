@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./loader.css"/>
+  <style>
+    body{
+      margin: 0;
+      background: #fff;
+    }
+    .box{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding-top: 50px;
+    }
+    .wrapper{
+      width: 200px;
+      height: 60px;
+      position: relative;
+    }
+    .circle{
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      border-radius: 50%;
+      background-color: #9b59b6;
+      left: 15%;
+      transform-origin: 50%;
+      animation: circle .5s alternate infinite ease;
+    }
+
+    @keyframes circle{
+      0%{
+        top: 60px;
+        height: 5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
+      }
+      40%{
+        height: 20px;
+        border-radius: 50%;
+        transform: scaleX(1);
+      }
+      100%{
+        top: 0%;
+      }
+    }
+    .circle:nth-child(2){
+      left: 45%;
+      animation-delay: .2s;
+    }
+    .circle:nth-child(3){
+      left: auto;
+      right: 15%;
+      animation-delay: .3s;
+    }
+    .shadow{
+      width: 20px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, .5);
+      position: absolute;
+      top: 62px;
+      transform-origin: 50%;
+      z-index: -1;
+      left: 15%;
+      filter: blur(1px);
+      animation: shadow .5s alternate infinite ease;
+    }
+
+    @keyframes shadow {
+      0%{
+        transform: scaleX(1.5);
+      }
+      40%{
+        transform: scaleX(1);
+        opacity: 0.7;
+      }
+      100%{
+        transform: scaleX(.2);
+        opacity: .4;
+      }
+    }
+    .shadow:nth-child(4){
+      left: 45%;
+      animation-delay: .2s;
+    }
+    .shadow:nth-child(5){
+      left: auto;
+      right: 15%;
+      animation-delay: .3s;
+    }
+    .wrapper span{
+      position: absolute;
+      top: 65px;
+      font-family: 'Lato';
+      font-size: 20px;
+      letter-spacing: 12px;
+      color: #9b59b6;
+      left: 15%;
+    }
+
+    /* 动画2 */
+    .loader{
+      position: relative;
+    }
+    .loader-box{
+      width: 50px;
+      height: 50px;
+      background: #6997DB;
+      animation: animate .5s linear infinite;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 3px;
+    }
+    @keyframes animate{
+      17%{
+        border-bottom-right-radius: 3px;
+      }
+      25%{
+        transform: translateY(9px) rotate(22.5deg);
+      }
+      50%{
+        transform: translateY(18px) rotate(45deg);
+        border-bottom-right-radius: 40px;
+      }
+      75%{
+        transform: translateY(9px) rotate(67.5deg);
+      }
+      100%{
+        transform: translateY(0) rotate(90deg);
+      }
+    }
+    .loader-shadow{
+      width: 50px;
+      height: 5px;
+      background: #000;
+      opacity: 0.1;
+      position: absolute;
+      top: 59px;
+      left: 0;
+      border-radius: 50%;
+      animation: shadow .5s linear infinite;
+    }
+    @keyframes shadow {
+      50%{
+        transform: scale(1.2, 1);
+      }
+    }
+
+    /* 百叶窗*/
+    .box2{
+      display: flex;
+      height: 50vh;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      flex-direction: row;
+    }
+    .bg{
+      position: absolute;
+      left: -20vw;
+      width: 50vw;
+      height: 50vh;
+      background-color: #d99058;
+      background-image: linear-gradient(315deg, #d99058 0%, #f8de7e 74%);
+      z-index: -1;
+      transition: 850ms;
+    }
+    .btn{
+      width: 160px;
+      height: 50px;
+      left: 20vw;
+      position: relative;
+      -webkit-tap-highlight-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 25px;
+      color: #fff;
+      cursor: pointer;
+      background-color: #63a4ff;
+      background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+    }
+    .blind{
+      position: absolute;
+      width: 10px;
+      height: 0px;
+      background-color: #fff;
+      background-image: linear-gradient(315deg, #fff 0%, #d7e1ec 74%);
+      top: 0;
+    }
+    .btn .string{
+      width: 5px;
+      height: 80px;
+      border-radius: 0 5px 0 0;
+      background-color: #eee;
+      position: absolute;
+      right: -5px;
+      top: 0;
+      transition: 850ms;
+    }
+    .string-end{
+      width: 8px;
+      height: 12px;
+      border-radius: 0 0 10px 10px;
+      background: #ccc;
+      position: absolute;
+      right: -6.5px;
+      bottom: -42px;
+      transition: 850ms;
+    }
+    .btn:hover .blind{
+      height: 50px;
+    }
+    .btn:hover .bg{
+      filter: invert(100%) brightness(20%);
+    }
+    .btn:hover .string{
+      height: 60px;
+    }
+    .btn:hover .string-end{
+      bottom: -22px;
+    }
+    .blind1{
+      left: 0;
+      transition: 100ms;
+    }
+    .blind2{
+      left: 10px;
+      transition: 150ms;
+    }
+    .blind3{
+      left: 20px;
+      transition: 200ms;
+    }
+    .blind4{
+      left: 30px;
+      transition: 250ms;
+    }
+    .blind5{
+      left: 40px;
+      transition: 300ms;
+    }
+    .blind6{
+      left: 50px;
+      transition: 350ms;
+    }
+    .blind7{
+      left: 60px;
+      transition: 400ms;
+    }
+    .blind8{
+      left: 70px;
+      transition: 450ms;
+    }
+    .blind9{
+      left: 80px;
+      transition: 500ms;
+    }
+    .blind10{
+      left: 90px;
+      transition: 550ms;
+    }
+    .blind11{
+      left: 100px;
+      transition: 600ms;
+    }
+    .blind12{
+      left: 110px;
+      transition: 650ms;
+    }
+    .blind13{
+      left: 120px;
+      transition: 700ms;
+    }
+    .blind14{
+      left: 130px;
+      transition: 750ms;
+    }
+    .blind15{
+      left: 140px;
+      transition: 800ms;
+    }
+    .blind16{
+      left: 150px;
+      transition: 850ms;
+    }
+
+    /* 钟摆 */
+    .sand{
+      width: 50vw;
+      height: 30vh;
+      background: #ffbd4d;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    .pendulums{
+      position: absolute;
+      width: 50px;
+      height: 200px;
+      right: 25vw;
+      top: -120px;
+      perspective: 400px;
+    }
+    .pendulum{
+      position: absolute;
+      width: 50px;
+      height: 200px;
+      right: 44%;
+      top: 0;
+      left: 50%;
+      transform: translateZ(-300px) translateX(-50%);
+    }
+    .pendulum.shadows{
+      top: 263%;
+      left: -65%;
+      bottom: 0;
+      transform-origin: 50% 0;
+      transform: translateX(-50%) scaleY(-1) scaleZ(2) rotateY(-30deg) rotateX(-75deg) translateZ(300px);
+    }
+    .pendulum .bar{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      display: block;
+      width:20px;
+      height: 200px;
+      background-color: #333;
+    }
+    .pendulum .string{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 150px;
+      background-color: #333;
+    }
+    .pendulum .weight{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 10px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #333;
+    }
+    .pendulum .motion{
+      position: absolute;
+      height: 200px;
+      width: 50px;
+      transform-origin: 50% 0;
+      animation: swing 1600ms infinite ease-in-out;
+    }
+    .pendulum.shadow .bar, .pendulum.shadow .string, .pendulum.shadow .weight{
+      background: #3d3a34;
+    }
+    @keyframes swing {
+      0%{
+        transform: rotate(-45deg);
+      }
+      50%{
+        transform: rotate(45deg);
+      }
+      100%{
+        transform: rotate(-45deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="wrapper">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
+      <span>Loading</span>
+    </div>
+    <div class="loader">
+      <div class="loader-shadow"></div>
+      <div class="loader-box"></div>
+    </div>
+    <div class="preloader">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="box2">
+    <div class="btn">
+      <div class="bg"></div>
+      <span class="noselect">Close the blinds</span>
+      <div class="string"></div>
+      <div class="string-end"></div>
+      <div class="blind blind1"></div>
+      <div class="blind blind2"></div>
+      <div class="blind blind3"></div>
+      <div class="blind blind4"></div>
+      <div class="blind blind5"></div>
+      <div class="blind blind6"></div>
+      <div class="blind blind7"></div>
+      <div class="blind blind8"></div>
+      <div class="blind blind9"></div>
+      <div class="blind blind10"></div>
+      <div class="blind blind11"></div>
+      <div class="blind blind12"></div>
+      <div class="blind blind13"></div>
+      <div class="blind blind14"></div>
+      <div class="blind blind15"></div>
+      <div class="blind blind16"></div>
+    </div>
+    <div class="sand">
+      <div class="pendulums">
+        <div class="pendulum">
+          <div class="bar"></div>
+          <div class="motion">
+            <div class="string"></div>
+            <div class="weight"></div>
+          </div>
+        </div>
+        <div class="pendulum shadows">
+          <div class="bar"></div>
+          <div class="motion">
+            <div class="string"></div>
+            <div class="weight"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
