@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href='https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One' rel='stylesheet' type='text/css'>  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Warnes&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+    body{
+      background-color: #222222;
+      background: repeating-linear-gradient(
+        45deg,
+        #2b2b2b 0%,
+        #2b2b2b 10%,
+        #222222 0%,
+        #222222 50%
+      ) 
+      0 / 15px 15px;
+    }
+    .container{
+      width: 500px;
+      margin: auto;
+    }
+    p{
+      text-align: center;
+      font-size: 7em;
+      margin: 20px 0 20px 0;
+    }
+    a{
+      text-decoration: none;
+      transition: all 0.5s;
+      cursor: pointer;
+    }
+    p:nth-child(1) a{
+      color: #fff;
+      font-family: Monoton;
+      animation: neon1 1.5s ease-in-out infinite alternate;
+    }
+    p:nth-child(1) a:hover{
+      color: #ff1177;
+      animation: none;
+    }
+    p:nth-child(2) a{
+      color: #228dff;
+      font-size: 1.5em;
+      font-family: Iceland;
+    }
+    p:nth-child(2) a:hover{
+      color: #fff;
+      animation: neon2 1.5s ease-in-out infinite alternate;
+    }
+    p a:hover{
+      color: #ffffff;
+    }
+    @keyframes neon1 {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #f17, 
+          0 0 70px #f17, 0 0 80px #f17, 0 0 100px #f17, 0 0 150px #f17;
+      }
+      to {
+        text-shadow: 0 0 5px #FFF, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f17, 
+          0 0 35px #f17, 0 0 40px #f17, 0 0 50px #f17, 0 0 75px #f17;
+      }
+    }
+    @keyframes neon2 {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff,
+          0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+      }
+      to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+          0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+      }
+    }
+    .neon2{
+      display: flex;
+      background-color: #000;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100vw; 
+      color: #999;
+      font-family: 'Dancing Script', 'Warnes', cursive;
+      font-size: 200px;
+      cursor: pointer;
+    }
+    p:hover span{
+      animation: flicker 1s linear forwards;
+    }
+    p:hover #e{
+      animation-delay: .2s;
+    }
+    p:hover #o{
+      animation-delay: .5s;
+    }
+    p:hover #n2{
+      animation-delay: .6s;
+    }
+    @keyframes flicker {
+      0%{
+        color: #333;
+      }
+      5%,15%,25%,30%,35%,100%{
+        color:#fff;
+        text-shadow: 
+          0 0 5px #42fff6,
+          0 0 10px #42fff6,
+          0 0 20px #42fff6,
+          0 0 50px #42fff6;
+      }
+      10%,20%,40%{
+        color: #333;
+        text-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p><a>RED</a></p>
+    <p><a>BLUE</a></p>
+  </div>
+  <p class="neon2">
+    <span id="n">n</span>
+    <span id="e">e</span>
+    <span id="o">o</span>
+    <span id="n2">n</span>
+  </p>
+</body>
+</html>
